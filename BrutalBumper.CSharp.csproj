@@ -82,14 +82,15 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
-    <Compile Include="Assets\Scripts\HealthScriptNewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Player\Bumper.cs" />
+    <Compile Include="Assets\Scripts\Player\HealthScriptNewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\Player\VehicleControl.cs" />
     <Compile Include="Assets\Scripts\UI\CursorSetter.cs" />
     <Compile Include="Assets\Scripts\UI\Ended.cs" />
     <Compile Include="Assets\Scripts\UI\Fader.cs" />
     <Compile Include="Assets\Scripts\UI\MenuLoader.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Wait.cs" />
-    <Compile Include="Assets\Scripts\VehicleControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
