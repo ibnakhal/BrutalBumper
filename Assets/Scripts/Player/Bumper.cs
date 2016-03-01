@@ -2,20 +2,25 @@
 using System.Collections;
 
 public class Bumper : MonoBehaviour {
+
     [SerializeField]
-    private int damage;
+    private GameObject parent;
+    // Use this for initialization
     [SerializeField]
-    private GameObject parent; 
-	// Use this for initialization
+    private float force;
+    [SerializeField]
+    private float modifier;
+    [SerializeField]
+    private VehicleControl vControl;
 	void Start () {
-	
+        vControl = parent.GetComponent<VehicleControl>();
 	}
 	
     public void OnTriggerEnter(Collider Other)
     {
         if (Other.tag == "Player" && Other.gameObject != parent)
         {
-            Other.GetComponent<HealthScriptNewBehaviourScript>().GetHurt(damage);
+            Other.GetComponentInParent<VehicleControl>().rb.AddRelativeForce(transform.forward * force);
         }
     }
 
@@ -23,6 +28,7 @@ public class Bumper : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-	
+
+        force = (float)(vControl.rb.velocity.z * modifier);
 	}
 }

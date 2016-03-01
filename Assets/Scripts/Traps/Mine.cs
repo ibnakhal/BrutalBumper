@@ -15,8 +15,11 @@ public class Mine : MonoBehaviour
         int i = 0;
         while(i < hitColliders.Length)
         {
-            hitColliders[i].GetComponent<HealthScriptNewBehaviourScript>().GetHurt(damage);
-            //health.GetHurt(damage);
+            if (hitColliders[i].tag == "Player")
+            {
+                health = hitColliders[i].GetComponent<HealthScriptNewBehaviourScript>();
+                health.GetHurt(damage);
+            }
             i++;
         }
     }
@@ -24,9 +27,10 @@ public class Mine : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            //MineDamage(this.transform.position, damageRadius);
+            MineDamage(this.transform.position, damageRadius);
             Destroy(this.gameObject);
             print("exploding");
+            
         }
     }
 }

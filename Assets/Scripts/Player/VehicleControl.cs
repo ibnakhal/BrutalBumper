@@ -7,7 +7,7 @@ public class VehicleControl : MonoBehaviour {
     [SerializeField]
     private float turnspeed;
     [SerializeField]
-    private Rigidbody rb;
+    public Rigidbody rb;
     // Use this for initialization
     void Start () {
         rb = this.gameObject.GetComponent<Rigidbody>();
@@ -22,18 +22,21 @@ public class VehicleControl : MonoBehaviour {
             Vector3 thrustV = this.gameObject.transform.forward;
             thrustV.y = 0.0f;
             rb.AddForce(thrustV * speed * v);
-            //transform.Translate(transform.forward * speed * Time.deltaTime);
-        if(h != 0)
+        //transform.Translate(transform.forward * speed * Time.deltaTime);
+        if (h != 0)
         {
-            if (v > 0)
+            if (rb.velocity != Vector3.zero)
             {
-                Debug.Log("Torque!");
-                this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * h);
-            }
-            if (v < 0)
-            {
-                this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * -h);
+                if (v >= 0)
+                {
+                    Debug.Log("Torque!");
+                    this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * h);
+                }
+                if (v <= 0)
+                {
+                    this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * -h);
 
+                }
             }
         }
 
