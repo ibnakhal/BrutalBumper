@@ -23,7 +23,7 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
             Instantiate(deadMesh, transform.position, transform.rotation);
             
             */
-            Destroy(this);
+            Destroy(this.gameObject);
         }
 	}
 
