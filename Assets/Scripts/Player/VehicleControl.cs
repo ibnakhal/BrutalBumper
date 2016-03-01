@@ -16,13 +16,26 @@ public class VehicleControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(Mathf.Abs(Input.GetAxis("Vertical")) > 0.01f)
-        {
-            Vector3 thrustV = transform.forward;
+        float v = Input.GetAxis("Vertical");
+        float h = Input.GetAxis("Horizontal");
+
+            Vector3 thrustV = this.gameObject.transform.forward;
             thrustV.y = 0.0f;
-            rb.AddRelativeForce(thrustV * speed);
+            rb.AddForce(thrustV * speed * v);
             //transform.Translate(transform.forward * speed * Time.deltaTime);
+        if(h != 0)
+        {
+            if (v > 0)
+            {
+                Debug.Log("Torque!");
+                this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * h);
+            }
+            if (v < 0)
+            {
+                this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * -h);
+
+            }
         }
-	
-	}
+
+    }
 }
