@@ -93,6 +93,9 @@
     <Compile Include="Assets\Scripts\Player\VehicleControl.cs" />
     <Compile Include="Assets\Scripts\Traps\FlameTrap.cs" />
     <Compile Include="Assets\Scripts\Traps\Mine.cs" />
+    <Compile Include="Assets\Scripts\Traps\Spike.cs" />
+    <Compile Include="Assets\Scripts\Traps\TrapMovement.cs" />
+    <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
     <Compile Include="Assets\Scripts\UI\CursorSetter.cs" />
     <Compile Include="Assets\Scripts\UI\Ended.cs" />
     <Compile Include="Assets\Scripts\UI\Fader.cs" />
