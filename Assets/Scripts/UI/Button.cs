@@ -12,9 +12,11 @@ public class Button : MonoBehaviour {
     private GameObject confirmButton1;
     [SerializeField]
     private GameObject confirmButton2;
+    [SerializeField]
+    private DataHolder data;
     public void Arcade()
     {
-//        Application.LoadLevel(arcadeLevel);
+        data.totalPlayers = 1;
         SceneManager.LoadScene(arcadeLevel);
     }
     public void Confirm()
@@ -29,6 +31,7 @@ public class Button : MonoBehaviour {
     }
     public void SplitScreen()
     {
+        data.totalPlayers = 2;
         SceneManager.LoadScene(splitLevel);
 
     }

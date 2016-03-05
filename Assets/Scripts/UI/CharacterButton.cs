@@ -6,9 +6,33 @@ public class CharacterButton : MonoBehaviour {
     private AudioClip[] selectionRange;
     [SerializeField]
     private AudioSource source;
+    [SerializeField]
+    private int characterNumber;
+    [SerializeField]
+    private bool taken;
+    [SerializeField]
+    private DataHolder data;
+
+    public void Start()
+    {
+        data = GameObject.FindGameObjectWithTag("Data").GetComponent<DataHolder>();
+    }
     public void blerb()
     {
-        StartCoroutine(buttonSelection());
+        if (!taken)
+        {
+            StartCoroutine(buttonSelection());
+            taken = true;
+            if (!data.p1Select)
+            {
+                data.p1Select = true;
+                
+            }
+            else
+            {
+                data.p2Select = true;
+            }
+        }
     }
 public IEnumerator buttonSelection()
     {
@@ -16,5 +40,6 @@ public IEnumerator buttonSelection()
         source.clip = selectionRange[rando];
         source.Play();
         yield return new WaitForSeconds(selectionRange[rando].length);
+                data.playerCounter++;
     }
 }
