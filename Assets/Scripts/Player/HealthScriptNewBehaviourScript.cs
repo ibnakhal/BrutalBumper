@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
 
 public class HealthScriptNewBehaviourScript : MonoBehaviour {
     [SerializeField]
@@ -8,7 +10,8 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
     private ParticleSystem deathParticles;
     [SerializeField]
     private GameObject deadMesh;
-     
+    [SerializeField]
+    private Text hTxt;     
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,7 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
             */
             Destroy(this.gameObject);
         }
+        hTxt.text = ("Health: " + Health);
 	}
 
 
