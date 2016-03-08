@@ -11,6 +11,12 @@ public class VehicleControl : MonoBehaviour
     private float maxNitros = 4000;
     [SerializeField]
     private int nitrosBoost = 100;
+    [SerializeField]
+    private string verticleInput = "Verticle";
+    [SerializeField]
+    private string horizontalInput = "Horizontal";
+    [SerializeField]
+    private string boostInput = "Boost";
 
     private float nitros;
     private float trueSpeed;
@@ -28,20 +34,19 @@ public class VehicleControl : MonoBehaviour
 	}
 	void Update ()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis(verticleInput);
+        float h = Input.GetAxis(horizontalInput);
 
             Vector3 thrustV = this.gameObject.transform.forward;
             thrustV.y = 0.0f;
             rb.AddForce(thrustV * speed * v);
-        //transform.Translate(transform.forward * speed * Time.deltaTime);
+
         if (h != 0)
         {
             if (rb.velocity != Vector3.zero)
             {
                 if (v >= 0)
                 {
-                    Debug.Log("Torque!");
                     this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * turnspeed * h);
                 }
                 if (v <= 0)
@@ -65,7 +70,7 @@ public class VehicleControl : MonoBehaviour
         }
         if (canBoost)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetButton(boostInput))
             {
                 speed = speedBoost;
                 StartCoroutine(Boost());
