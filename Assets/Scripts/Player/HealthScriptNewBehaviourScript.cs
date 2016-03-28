@@ -22,9 +22,11 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
 	void Update () {
 	if(Health<=0)
         {
+            Health = 0;
             Instantiate(deathParticles, transform.position, Quaternion.identity);
-            
-            Instantiate(deadMesh, transform.position, transform.rotation);
+
+            GameObject clone = Instantiate(deadMesh, transform.position, transform.rotation) as GameObject;
+            clone.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
             
             
             Destroy(this.gameObject);
