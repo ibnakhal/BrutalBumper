@@ -28,6 +28,9 @@ public class Mine : MonoBehaviour
         if(other.tag == "Player")
         {
             MineDamage(this.transform.position, damageRadius);
+            GetComponentInParent<SpawnLocalControl>().taken = false;
+            GameObject pnt = transform.parent.gameObject;
+            pnt.GetComponentInParent<TrapSpawn>().theList.Remove(this.gameObject);
             Destroy(this.gameObject);
             print("exploding");
             
