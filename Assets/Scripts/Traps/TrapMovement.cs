@@ -16,6 +16,6 @@ public class TrapMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        transform.Rotate(rotationDir * Time.deltaTime * rotSpeed);
 	}
 }

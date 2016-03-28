@@ -7,7 +7,7 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
     [SerializeField]
     private int Health;
     [SerializeField]
-    private ParticleSystem deathParticles;
+    private GameObject deathParticles;
     [SerializeField]
     private GameObject deadMesh;
     [SerializeField]
@@ -21,11 +21,12 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	if(Health<=0)
-        {/*
+        {
             Instantiate(deathParticles, transform.position, Quaternion.identity);
+            
             Instantiate(deadMesh, transform.position, transform.rotation);
             
-            */
+            
             Destroy(this.gameObject);
         }
         hTxt.text = ("Health: " + Health);
