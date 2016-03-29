@@ -24,14 +24,26 @@ public class Wincon : MonoBehaviour {
         {
             winText.text = ("Player " + players[0].GetComponent<HealthScriptNewBehaviourScript>().playerNumber + " Wins!");
             gameOver = true;
+            StartCoroutine(End());
         }
         if (players.Count == 0 && !gameOver)
         {
             winText.text = ("Draw");
             gameOver = true;
+            StartCoroutine(End());
+
         }
 
 
 
     }
+
+
+    public IEnumerator End()
+    {
+        yield return new WaitForSeconds(5);
+        Application.LoadLevel(0);
+    }
+
+
 }

@@ -53,7 +53,7 @@ public class Button : MonoBehaviour {
 
     public void FourPlayer()
     {
-        SceneManager.LoadScene(splitLevel);
+        SceneManager.LoadScene(quadLevel);
 
     }
     public void Denied()
