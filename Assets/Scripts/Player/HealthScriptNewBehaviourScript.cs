@@ -11,8 +11,9 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
     [SerializeField]
     private GameObject deadMesh;
     [SerializeField]
-    private Text hTxt;     
-
+    private Text hTxt;
+    [SerializeField]
+    public int playerNumber;
 	// Use this for initialization
 	void Start () {
 	
@@ -27,7 +28,7 @@ public class HealthScriptNewBehaviourScript : MonoBehaviour {
 
             GameObject clone = Instantiate(deadMesh, transform.position, transform.rotation) as GameObject;
             clone.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
-            
+            GetComponentInParent<Wincon>().players.Remove(this.gameObject);
             
             Destroy(this.gameObject);
         }
