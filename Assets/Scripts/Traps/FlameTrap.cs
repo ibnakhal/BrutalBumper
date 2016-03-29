@@ -10,7 +10,7 @@ public class FlameTrap : MonoBehaviour
     private bool isDamaging = true;
     private HealthScriptNewBehaviourScript health = null;
     [SerializeField]
-    private bool active;
+    public bool active = true;
 
     private void OnTriggerStay(Collider other)
     {

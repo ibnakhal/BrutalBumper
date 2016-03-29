@@ -27,6 +27,7 @@ public class FlameControl : MonoBehaviour {
             {
                 PSystem[x].Stop();
                 fSwitch = false;
+                fTrap.active = false;
             }
         }
         else
@@ -35,6 +36,7 @@ public class FlameControl : MonoBehaviour {
             {
                 PSystem[x].Play();
                 fSwitch = true;
+                fTrap.active = true;
             }
         }
        
