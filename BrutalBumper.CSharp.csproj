@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Traps\TrapMovement.cs" />
     <Compile Include="Assets\Scripts\Traps\TrapSpawn.cs" />
     <Compile Include="Assets\Scripts\UI\Button.cs" />
+    <Compile Include="Assets\Scripts\UI\Button2P.cs" />
     <Compile Include="Assets\Scripts\UI\CharacterButton.cs" />
     <Compile Include="Assets\Scripts\UI\CursorSetter.cs" />
     <Compile Include="Assets\Scripts\UI\DataHolder.cs" />
