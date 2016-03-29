@@ -9,10 +9,12 @@ public class FlameTrap : MonoBehaviour
     private float damgeTime = 1;
     private bool isDamaging = true;
     private HealthScriptNewBehaviourScript health = null;
+    [SerializeField]
+    private bool active;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && active)
         {
             // Grab the script of the player being hit.
            health = other.GetComponent<HealthScriptNewBehaviourScript>();

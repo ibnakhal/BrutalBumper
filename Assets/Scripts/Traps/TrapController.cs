@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TrapController : MonoBehaviour
 {
-    [SerializeField]
+/*    [SerializeField]
     private GameObject spikeTraps;
+  */[SerializeField]
+    private List<GameObject> flameTraps;
     [SerializeField]
-    private GameObject flameTraps;
-    [SerializeField]
-    private GameObject flamePillars;
+    private List<GameObject> flamePillars;
 
-  /*private void Start()
+private void Start()
     {
-        spikeTraps = GameObject.FindGameObjectWithTag("spikeTraps");
-        flameTraps = GameObject.FindGameObjectWithTag("flameTraps");
-        flameTraps = GameObject.FindGameObjectWithTag("flamePillars");
-    }*/
+        flameTraps.AddRange(GameObject.FindGameObjectsWithTag("flameTraps"));
+        flamePillars.AddRange(GameObject.FindGameObjectsWithTag("flamePillars"));
+    }
     /*private void Awake()
     {
         spikeTraps = GameObject.FindGameObjectWithTag("spikeTraps");
@@ -28,32 +28,49 @@ public class TrapController : MonoBehaviour
 
         if ( other.tag == "Player")
         {
+
+
             int percentage = Random.Range(1, 100);
 
-            if (percentage >= 1 && percentage <= 30)
+            if (percentage >= 1 && percentage <= 32)
             {
-                spikeTraps.SetActive(true);
-                flameTraps.SetActive(true);
-                flamePillars.SetActive(false);
+                foreach (GameObject obj in flameTraps)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+                }
             }
-            if (percentage >= 31 && percentage <= 60 )
+            if (percentage >= 33 && percentage <= 65 )
             {
-                spikeTraps.SetActive(true);
-                flameTraps.SetActive(false);
-                flamePillars.SetActive(true);
+                foreach (GameObject obj in flamePillars)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+
+                }
             }
-            if(percentage >= 61 && percentage <= 90)
+            if(percentage >= 66 && percentage <= 100)
             {
-                spikeTraps.SetActive(false);
-                flameTraps.SetActive(true);
-                flamePillars.SetActive(true);
+                foreach (GameObject obj in flameTraps)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+                }
+                foreach (GameObject obj in flamePillars)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+
+                }
             }
-            if(percentage >= 91 && percentage <= 100)
+           /* if(percentage >= 91 && percentage <= 100)
             {
-                spikeTraps.SetActive(true);
-                flameTraps.SetActive(true);
-                flamePillars.SetActive(true);
-            }
+                foreach (GameObject obj in flameTraps)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+                }
+                foreach (GameObject obj in flamePillars)
+                {
+                    obj.GetComponent<FlameControl>().ShutDown();
+
+                }
+            }*/
         }
         Destroy(this.gameObject);
     }
