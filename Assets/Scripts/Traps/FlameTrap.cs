@@ -12,6 +12,12 @@ public class FlameTrap : MonoBehaviour
     [SerializeField]
     public bool active = true;
 
+    public void Start()
+    {
+        active = true;
+    }
+
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" && active)
